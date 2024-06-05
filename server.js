@@ -29,6 +29,12 @@ app.use(express.json());
 app.use(morgan("dev"));
 // app.use(express.static(path.join(__dirname, "./client/build")));
 
+//for production
+app.get("/", (req, res) => {
+    res.send({ message: "Hello World!" });
+});
+
+
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
